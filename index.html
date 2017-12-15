@@ -56,6 +56,15 @@
 		<![endif]-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
         <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
+   	<script src="https://origempolling.herokuapp.com/socket.io/socket.io.js"></script>
+    	<script>
+    	var socket = io.connect('https://origempolling.herokuapp.com');
+    	socket.on('visits', function(online){
+		JSON.stringify(online);
+      	document.getElementById('online').innerHTML = online;
+    	});
+    	</script>
     </head>
     <body>
     	<div class="loader">
@@ -159,6 +168,7 @@
 					<div class="row">
 						<div class="col-sm-12 text-center">
 							<h1><a style="color:#00b4ff;">ORIGEM</a><em style="font-style: normal !important;color:white;"> WOOT</em></h1>
+							<h1 id="pollStats" class="text-white" style="margin-bottom: 20px !important;width: 600px;margin: 0 auto;"><span id="online">0</span> people are now using Origem Woot.</h1>
 							<h1 class="text-white space-bottom-medium">The fastest, most lightest extension for plug.dj</h1>
 							<a target="_blank" href="https://rawgit.com/OrigemWoot/OrigemWoot/master/origem.user.js" class="btn btn-primary btn-white">UserScript</a>
 							<a title="Drag me to your bookmarks bar!" onclick="return alert('Drag this link to your bookmarks'),false;" href="javascript:(function(){$.getScript('https://rawgit.com/OrigemWoot/OrigemWoot/master/origem.min.js');}());" target="_blank" class="btn btn-primary btn-filled">ORIGEM</a>
